@@ -16,3 +16,10 @@ exports.getPostById = async (req, res, next) => {
   const response = await axios.get(`${api_url}/${id}`);
   res.json(response.data);
 };
+
+exports.invalidRequest = (req, res, next) => {
+  res.json({
+    invalid_url: req.path,
+    message: "Invalid request, 404 not found :<",
+  });
+};
